@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Moș Crăciun la Ambro 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Figtree:wght@400;500;600;700&family=Josefin+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: o scrisoare către Moș — coloană îngustă; după căutare, câte un card pe copil și un singur buton de trimitere */
+:root{
+  --bg:#fbfaf7; --paper:#ffffff; --ink:#26262e; --muted:#62626e; --line:#e3e1dc;
+  --navy:#24318f; --cane:#d23a3a; --sprig:#3f9a55; --soft:#eef0fa; --sproutbg:#eaf5ed;
+  --font-hand:"Caveat","Segoe Print","Comic Sans MS",cursive;
+  --font-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-caps:"Josefin Sans","Figtree",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15161d; --paper:#1d1f29; --ink:#ecebe6; --muted:#a3a3b0; --line:#30323f;
+  --navy:#9aa6ff; --cane:#ef6a6a; --sprig:#6cc483; --soft:#23263a; --sproutbg:#1d2b22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15161d; --paper:#1d1f29; --ink:#ecebe6; --muted:#a3a3b0; --line:#30323f;
+  --navy:#9aa6ff; --cane:#ef6a6a; --sprig:#6cc483; --soft:#23263a; --sproutbg:#1d2b22; color-scheme:dark}
+
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;display:grid;gap:24px}
+.cane{height:10px;border-radius:6px;background:repeating-linear-gradient(-45deg,var(--cane) 0 12px,var(--paper) 12px 20px,var(--sprig) 20px 23px,var(--paper) 23px 31px)}
+header{display:grid;gap:6px}
+.logos{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border-radius:12px;padding:12px 16px;margin-bottom:10px}
+.logos img{display:block;height:auto}
+.lg-co{width:min(58%,240px)}
+.lg-ro{width:min(28%,110px);opacity:.85}
+.brand{font-family:var(--font-caps);letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--navy);font-weight:600}
+h1{font-family:var(--font-hand);font-weight:700;line-height:1.05;text-wrap:balance;margin:0;font-size:clamp(40px,8vw,58px)}
+h3{margin:0;font-size:20px}
+.lead{color:var(--muted);max-width:60ch;margin:0}
+.caps{font-family:var(--font-caps);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted)}
+.card{display:grid;gap:14px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:20px}
+
+.event{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.date{display:grid;justify-items:center;min-width:84px;padding:10px 12px;border-radius:10px;background:var(--soft);color:var(--navy)}
+.date .d{font-family:var(--font-hand);font-size:52px;font-weight:700;line-height:.9}
+.date .m{font-family:var(--font-caps);letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-weight:600}
+.event .venue{font-size:22px;font-weight:700;margin:2px 0}
+.event p{margin:0;color:var(--muted)}
+.event > div{min-width:0}
+.deadline{font-weight:700;color:var(--cane)}
+
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.field{display:grid;gap:6px;min-width:0}
+.field label,.q{font-weight:600;font-size:14px}
+.field input,.field select{font:inherit;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);min-width:0;width:100%;box-sizing:border-box}
+.field input:focus-visible,.field select:focus-visible{outline:3px solid var(--navy);outline-offset:1px}
+.msg{margin:0;font-size:14px}
+.msg.err{color:var(--cane);font-weight:600}
+.msg.ok{color:var(--sprig);font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:600;padding:12px 20px;border-radius:999px;border:1.5px solid var(--navy);background:var(--navy);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn:disabled{opacity:.55;cursor:wait}
+.btn:focus-visible,.linkish:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.linkish{font:inherit;background:none;border:0;padding:0;color:var(--navy);font-weight:600;cursor:pointer;text-decoration:underline}
+.note{font-size:14px;color:var(--muted);margin:0}
+
+.hello{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
+.hello strong{font-size:22px}
+.kids{display:grid;gap:14px;list-style:none;margin:0;padding:0}
+.child{display:grid;gap:12px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:18px}
+.child.missing{border-color:var(--cane)}
+.ch-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.ch-head .kn{font-family:var(--font-hand);font-size:32px;font-weight:700;line-height:1;color:var(--navy)}
+.ch-head .ka{color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{font:inherit;font-weight:600;padding:8px 18px;border:0;background:var(--bg);color:var(--ink);cursor:pointer}
+.seg button + button{border-left:1.5px solid var(--line)}
+.seg button[aria-pressed="true"].yes{background:var(--sprig);color:var(--paper)}
+.seg button[aria-pressed="true"].no{background:var(--muted);color:var(--paper)}
+.seg button:focus-visible{outline:3px solid var(--navy);outline-offset:-3px}
+.info{margin:0;padding:10px 14px;border-radius:10px;background:var(--soft);font-size:15px}
+.info.gift{background:var(--sproutbg)}
+.letter{display:grid;gap:10px;padding-top:12px;border-top:1px dashed var(--line)}
+.drop{position:relative;display:grid;place-items:center;gap:4px;text-align:center;padding:16px;border:2px dashed var(--line);border-radius:12px;background:var(--bg);cursor:pointer;color:var(--muted);font-size:14px}
+.drop:hover{border-color:var(--sprig);color:var(--ink)}
+.drop strong{color:var(--ink);font-size:15px}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.drop:focus-within{outline:3px solid var(--navy);outline-offset:2px}
+.thumb{display:flex;align-items:center;gap:12px;padding:8px;border:1.5px solid var(--line);border-radius:12px}
+.thumb img{width:52px;height:68px;object-fit:cover;border-radius:6px;background:#fff}
+.thumb span{min-width:0;flex:1;overflow-wrap:anywhere;font-size:14px}
+.sentmark{color:var(--sprig);font-weight:600;font-size:14px}
+
+.model{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center}
+.model img{width:72px;border-radius:6px;border:1px solid var(--line);background:#fff}
+.model > div{display:grid;gap:6px;min-width:0}
+.check{display:flex;align-items:flex-start;gap:10px;font-size:15px;cursor:pointer}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--sprig);flex:none}
+.summary{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.summary li{padding-left:18px;position:relative}
+.summary li::before{content:"";position:absolute;left:2px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--sprig)}
+.kidlist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.kidlist li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 14px;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg)}
+.kidlist .kn{font-family:var(--font-hand);font-size:28px;font-weight:700;line-height:1;color:var(--navy)}
+.kidlist .kg{font-size:14px;color:var(--muted)}
+.btn.big{font-size:18px;padding:14px 26px}
+.privacy{font-size:13.5px;color:var(--muted);background:var(--soft);border-radius:10px;padding:14px 16px;margin:0}
+.privacy strong{color:var(--ink)}
+@media (max-width:480px){.event{grid-template-columns:1fr}.date{justify-self:start;grid-auto-flow:column;gap:10px;align-items:baseline}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <div class="cane" aria-hidden="true"></div>
+
+  <header>
+    <div class="logos"><img src="logo-ambro.png" alt="Ambro – Groupe Rossmann" class="lg-co"><img src="logo-rossmann-navy.png" alt="Rossmann – La passion d'emballer" class="lg-ro"></div>
+    <h1 id="c-title"></h1>
+    <p class="lead">Petrecerea de Crăciun pentru copiii colegilor, până la 14 ani împliniți. Confirmă participarea și trimite scrisoarea Moșului.</p>
+  </header>
+
+  <div class="card event">
+    <div class="date"><span class="d" id="c-day"></span><span class="m" id="c-month"></span></div>
+    <div>
+      <span class="caps" id="c-weekday"></span>
+      <div class="venue" id="c-venue"></div>
+      <p id="c-hours"></p>
+      <p id="c-address"></p>
+    </div>
+  </div>
+
+  <p style="margin:0">Răspunde până la <span class="deadline" id="c-deadline"></span>.</p>
+
+  <form class="card" id="find" novalidate>
+    <h3>Identificare copii</h3>
+    <div class="fields">
+      <div class="field"><label for="f-name">Numele tău de familie</label><input id="f-name" autocomplete="family-name" placeholder="ex. Popescu"></div>
+      <div class="field"><label for="f-dob">Data nașterii copilului</label><input id="f-dob" type="date" min="2010-01-01" max="2026-12-31"></div>
+    </div>
+    <p class="note">Ai mai mulți copii? Pune data nașterii oricăruia dintre ei.</p>
+    <div class="btns"><button class="btn" id="f-go" type="submit">Continuă</button></div>
+    <p class="msg" id="f-msg" role="status"></p>
+  </form>
+
+  <div id="family" hidden>
+    <div class="card">
+      <div class="hello"><span><span class="caps">Părinte</span><br><strong id="fam-name"></strong></span><button class="linkish" id="fam-reset" type="button">Nu sunt eu</button></div>
+      <ul class="kidlist" id="kids"></ul>
+      <div class="btns"><a class="btn big" id="go" target="_blank" rel="noopener" href="#">Completează răspunsul</a></div>
+      <p class="note">Se deschide formularul cu copiii tăi deja completați. Acolo spui cine vine la petrecere și încarci scrisorile, apoi apeși <strong>Trimite</strong>.</p>
+      <p class="msg" id="go-msg" role="status" hidden></p>
+    </div>
+    <div class="card" id="model-card" hidden style="margin-top:18px">
+      <div class="model">
+        <img src="preview.png" alt="Modelul de scrisoare către Moș Crăciun">
+        <div>
+          <strong>Scrisoarea către Moș</strong>
+          <p class="note">Copilul scrie ce își dorește și face un desen. Tu faci o poză și o pui în formular. Dacă nu e gata acum, revii pe această pagină până pe <span class="dl-deadline"></span> și completezi din nou.</p>
+          <div class="btns"><a class="linkish" id="dl" href="scrisoare-mos-craciun.pdf" download="Scrisoare pentru Mos Craciun.pdf">Descarcă modelul de scrisoare (PDF)</a></div>
+          <p class="note" id="dl-note" hidden></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="privacy">Datele copiilor sunt folosite doar pentru petrecere și cadouri. Întrebări: <span id="c-contact"></span>.</p>
+
+  <div class="cane" aria-hidden="true"></div>
+</div>
+
+<script>
+/* ===== CONFIGURARE ===== */
+const CONFIG = {
+  deadline: "13 noiembrie",
+  contact: "Resurse Umane",
+  pickupContact: "Resurse Umane Ambro",      // de la cine se ridică cadoul copiilor care nu vin
+  voucherFromAge: 10,                  // de la această vârstă (la data petrecerii): card Decathlon, fără scrisoare
+  voucherLabel: "card cadou Decathlon",
+  formUrl: "https://tally.so/r/2jX6kg",   // formularul unic Tally
+  company: {
+    name: "Ambro", date: "2026-12-06", venue: "Kaboom",
+    hours: "Între 10:00 și 14:00",
+    address: "Complex Turistic Zamca, Str. Zamcei nr. 28 A, Suceava (intrarea dinspre Mănăstirea Zamca)"
+  },
+  departmentsUnused: ["Producție – Carton ondulat","ICO","Logistică","Comercial","Achiziții","Financiar","Juridic","IT","HR","Mediu, SSM, AQS","Parc auto","Altul"]
+};
+/* ======================= */
+
+const MONTHS = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+const DAYS = ["duminică","luni","marți","miercuri","joi","vineri","sâmbătă"];
+const $ = id => document.getElementById(id);
+const C = CONFIG.company;
+const ageLabel = a => a == null ? "" : a === 1 ? "1 an" : `${a} ani`;
+const firstName = n => n.split(" ")[0];
+
+(function header() {
+  const [y, m, d] = C.date.split("-").map(Number); const dt = new Date(y, m - 1, d);
+  $("c-title").textContent = `Moș Crăciun vine la ${C.name}!`;
+  $("c-day").textContent = d; $("c-month").textContent = MONTHS[m - 1];
+  $("c-weekday").textContent = `${DAYS[dt.getDay()]}, ${y}`;
+  $("c-venue").textContent = C.venue; $("c-hours").textContent = C.hours; $("c-address").textContent = C.address;
+  $("c-deadline").textContent = CONFIG.deadline; $("c-contact").textContent = CONFIG.contact;
+  document.querySelectorAll(".dl-deadline").forEach(e => e.textContent = CONFIG.deadline);
+})();
+
+/* ---- căutarea copiilor (date criptate, decriptate local) ---- */
+let DATA = null;
+const dataReady = fetch("ambro-data.json").then(r => r.json()).then(d => { DATA = d; }).catch(() => {});
+const hex2buf = h => new Uint8Array(h.match(/../g).map(x => parseInt(x, 16)));
+const b64buf = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const toHex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
+const normTok = s => s.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toUpperCase().replace(/[^A-Z]/g, " ").split(/\s+/).filter(t => t.length >= 3);
+async function lookup(token, dob) {
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(`${token}|${dob}`), "PBKDF2", false, ["deriveBits"]);
+  const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: hex2buf(DATA.salt), iterations: DATA.iter }, base, 384);
+  const blob = DATA.entries[toHex(bits.slice(32))];
+  if (!blob) return null;
+  const raw = b64buf(blob);
+  const key = await crypto.subtle.importKey("raw", bits.slice(0, 32), "AES-GCM", false, ["decrypt"]);
+  return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: raw.slice(0, 12) }, key, raw.slice(12))));
+}
+
+$("find").addEventListener("submit", async e => {
+  e.preventDefault();
+  const msg = $("f-msg"), btn = $("f-go");
+  const toks = normTok($("f-name").value), dob = $("f-dob").value;
+  msg.className = "msg";
+  if (!toks.length || !dob) { msg.className = "msg err"; msg.textContent = "Completează numele de familie și data nașterii copilului."; return; }
+  btn.disabled = true; msg.textContent = "Un moment…";
+  await dataReady;
+  if (!DATA) { msg.className = "msg err"; msg.textContent = "Lista nu s-a putut încărca. Reîncarcă pagina."; btn.disabled = false; return; }
+  let fam = null;
+  for (const t of toks) { try { fam = await lookup(t, dob); } catch (_) {} if (fam) break; }
+  btn.disabled = false;
+  if (!fam) { msg.className = "msg err"; msg.textContent = `Nu te-am găsit în listă. Verifică numele și data nașterii (zi, lună, an). Dacă tot nu merge, întreabă la ${CONFIG.contact}.`; return; }
+  if (fam.exclus) { msg.textContent = `Pentru familia voastră, colegii de la ${CONFIG.contact} vă contactează direct. Mulțumim!`; return; }
+  msg.textContent = "";
+  showFamily(fam);
+});
+$("fam-reset").addEventListener("click", () => {
+  $("family").hidden = true; $("find").hidden = false;
+  $("f-name").value = ""; $("f-dob").value = ""; $("f-name").focus();
+});
+
+/* ---- copiii familiei și linkul spre formularul unic ---- */
+let FAM = null;
+const isVoucher = k => k.ani != null && k.ani >= CONFIG.voucherFromAge;
+
+function formLink(fam) {
+  const u = new URL(CONFIG.formUrl);
+  u.searchParams.set("familie", fam.fid);
+  u.searchParams.set("parinte", fam.parinte);
+  if (fam.departament) u.searchParams.set("departament", fam.departament);
+  if (fam.locatie) u.searchParams.set("locatie", fam.locatie);
+  fam.copii.slice(0, 4).forEach((k, i) => {
+    u.searchParams.set(`c${i + 1}_cod`, k.id);
+    u.searchParams.set(`c${i + 1}_nume`, k.nume);
+    u.searchParams.set(`c${i + 1}_cadou`, isVoucher(k) ? "card" : "scrisoare");
+  });
+  return u.toString();
+}
+
+function showFamily(fam) {
+  FAM = fam;
+  $("find").hidden = true; $("family").hidden = false;
+  $("fam-name").textContent = fam.parinte;
+  const ul = $("kids"); ul.innerHTML = "";
+  fam.copii.forEach(k => {
+    const li = document.createElement("li");
+    li.innerHTML = '<span class="kn"></span><span class="kg"></span>';
+    li.querySelector(".kn").textContent = k.nume;
+    li.querySelector(".kg").textContent = `${ageLabel(k.ani)} · ${isVoucher(k) ? CONFIG.voucherLabel : "cadou după scrisoarea către Moș"}`;
+    ul.appendChild(li);
+  });
+  $("go").href = formLink(fam);
+  $("model-card").hidden = !fam.copii.some(k => !isVoucher(k));
+  window.scrollTo(0, 0);
+}
+
+/* ---- modelul de scrisoare: în claude.ai prin capabilitatea de descărcare ---- */
+$("dl").addEventListener("click", async e => {
+  if (!window.claude) return;               // pe serverul firmei: link normal
+  e.preventDefault();
+  const note = $("dl-note"); note.hidden = false;
+  const downloads = await window.claude.use("downloads");
+  if (!downloads) { note.textContent = `Descărcarea nu merge aici. Cere modelul tipărit de la ${CONFIG.contact} sau scrie pe orice foaie.`; return; }
+  try {
+    const blob = await (await fetch("scrisoare-mos-craciun.pdf")).blob();
+    await downloads.save({ filename: "Scrisoare pentru Mos Craciun.pdf", data: blob });
+    note.textContent = "Modelul a fost descărcat.";
+  } catch (err) {
+    if (err && err.code === "declined") { note.hidden = true; return; }
+    note.textContent = `Descărcarea nu a mers. Cere modelul tipărit de la ${CONFIG.contact} sau scrie pe orice foaie.`;
+  }
+});
+</script>
+
+</body>
+</html>
